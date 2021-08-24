@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sentiment Analysis</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        font-family: Arial;
+        margin: 0;
+        
+      }
+
+      form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      form textarea {
+        width: 500px;
+        height: 150px;
+        border-radius: 3px;
+        border-color: black;
+        padding: 2px 10px;
+        box-sizing: border-box;
+        min-width: 300px;
+        margin-top: 29px;
+        font-size: 16px;
+      }
+
+      form button {
+        width: 90px;
+        height: 38px;
+        margin-top: 20px;
+        border-color: coral;
+        background-color: royalblue;
+      }
+
+      form button:hover {
+        width: 90px;
+        height: 38px;
+        margin-top: 20px;
+        border-color: coral;
+        background-color: #e2661d;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.494),
+          0 17px 50px 0 rgba(0, 0, 0, 0.679);
+      }
+
+      .container {
+        background: rgb(135, 228, 235);
+        height: 100%;
+      }
+
+      .fa {
+        padding: 8px;
+        font-size: 30px;
+        width: 50px;
+        background: rgb(135, 228, 235);
+        text-align: center;
+        text-decoration: none;
+        margin: 12px 10px;
+        margin-top: 23px;
+      }
+
+      .header {
+        height: 124px;
+        margin-top: 0;
+        padding: 36px;
+        text-align: center;
+        background: rgb(135, 228, 235);
+        color: black;
+        font-size: 25px;
+      }
+      /* Page Content */
+      .content {
+        padding: 20px;
+        background: rgb(135, 228, 235);
+        height: calc(100% - 402px);
+      }
+
+      .footer {
+        background: rgb(135, 228, 235);
+        /* height: 165px; */
+        height: 100%;
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        text-align: center;
+      }
+
+      .predict {
+        margin-top: 42px;
+        font-size: 25px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Sentiment Analysis of Glassdoor Reviews</h1>
+      </div>
+      <div class="content">
+        <form action="{{ url_for('predict')}}" method="post">
+          <textarea
+            name="Review"
+            placeholder="Enter the review here..."
+            required="required"
+            cols="500"
+            rows="100"
+          ></textarea>
+
+          <button type="submit">
+            Predict
+          </button>
+        </form>
+        <div class="predict">
+          {{ prediction_text }}
+        <div class="predict">
+          {{ message,NumberOfReviews }}
+        <div class="predict">
+          {{ message1, NumberOfReviewsForDrop }}
+    </form>
