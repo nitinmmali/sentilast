@@ -110,6 +110,7 @@
     <div class="container">
       <div class="header">
         <h1>Sentiment Analysis of Glassdoor Reviews</h1>
+        
       </div>
       <div class="content">
         <form action="{{ url_for('predict')}}" method="post">
@@ -128,7 +129,8 @@
         <div class="predict">
           {{ prediction_text }}
         <div class="predict">
-          {{ message,NumberOfReviews }}
+          <p>Reviews required to achieve Ideal score 4.5={{ NumberOfReviews }}</p>
+          
         <div class="predict">
-          {{ message1, NumberOfReviewsForDrop }}
+          <p>Number of reviews for 0.5 drop={{ NumberOfReviewsForDrop }}</p>
     </form>
