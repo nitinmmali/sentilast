@@ -18,7 +18,7 @@ cv = pickle.load(open('cv.pkl', 'rb'))
 
 @app.route('/',methods=['GET','POST'])
 def home():
-    return render_template('index.html')
+    return render_template('index.html',NumberOfReviews=Number_of_reviews_required(),NumberOfReviewsForDrop=Number_of_reviews_for_Drop())
 
 
 @app.route('/predict', methods=['GET','POST'])
@@ -49,12 +49,11 @@ def predict():
         # Ideal_score=4.5
         # x1=(((Ideal_score*model.Total_Number_of_Ratings)-(model.Avg_of_all_Ratings*model.Total_Number_of_Ratings))/(0.5))
 
-        message= 'Reviews required to achieve Ideal score 4.5='
-        NumberOfReviews=Number_of_reviews_required()
-        message1= 'Number of reviews for 0.5 drop='
-        NumberOfReviewsForDrop=Number_of_reviews_for_Drop()
-    return render_template('index.html', text=text, prediction_text=sentiment,message=message,NumberOfReviews=NumberOfReviews,
-    message1=message1,NumberOfReviewsForDrop=NumberOfReviewsForDrop )
+        # message= 'Reviews required to achieve Ideal score 4.5='
+        # NumberOfReviews=Number_of_reviews_required()
+        # message1= 'Number of reviews for 0.5 drop='
+        # NumberOfReviewsForDrop=Number_of_reviews_for_Drop()
+    return render_template('index.html', text=text, prediction_text=sentiment )
 
 if __name__ == "__main__":
     app.run(debug=True)
